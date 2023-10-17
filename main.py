@@ -37,9 +37,10 @@ async def create_user(user: UserSerializer):
         password=user.password,
     )
 
-    check_user = session.query(UserModel).filter(user.username==new_user.username, user.email==new_user.email).first()
+    check_username = session.query(UserModel).filter_by(username=user.username).first()
+    check_email = session.query(UserModel).filter_by(email=user.email).first()
 
-    if check_user is not None:
+    if check_username is not None or check_email is not None:
         raise HTTPException(status_code=400, detail="User already exists")
     
     session.add(new_user)
