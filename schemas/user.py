@@ -9,3 +9,8 @@ class UserSerializer(BaseModel):
     
     class Config:
         orm_mode=True
+
+class JWTToken(BaseModel):
+    access_token: str
+    token_type: str
+

@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-
+# on unix enviroments these variables should be exported on .bashrc ou .zshrc files
 url = URL.create(
     drivername=os.getenv("DRIVER_THEBAZAAR"),
     username=os.getenv("USERNAME_THEBAZAAR"),
@@ -16,4 +16,7 @@ url = URL.create(
 engine = create_engine(url)
 Base = declarative_base()
 make_session = sessionmaker(bind=engine)
+
+# every interaction with database has it own session to perform actions
+# note: think about how to scale the database when going to production
 session = make_session()
