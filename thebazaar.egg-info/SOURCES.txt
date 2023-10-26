@@ -6,6 +6,8 @@ models/__init__.py
 models/user.py
 schemas/__init__.py
 schemas/user.py
+tests/__init__.py
+tests/test_healthcheck.py
 thebazaar.egg-info/PKG-INFO
 thebazaar.egg-info/SOURCES.txt
 thebazaar.egg-info/dependency_links.txt

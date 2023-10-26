@@ -25,7 +25,7 @@ app.add_middleware(
 # useless route
 @app.get("/")
 async def home():
-    return {"message": "hello"}
+    return { "message" : "hello" }
 
 # this route should only be used as a testing route
 @app.get("/api/users/all", response_model=List[UserSerializer], status_code=status.HTTP_200_OK)
